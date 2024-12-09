@@ -1,0 +1,704 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: "Poppins", serif;
+}
+
+:root {
+    --bg-color: #1f242d;
+    --secound-bg-color: #323946;
+    --main-color: #20b2aa;
+    --white-color: #fff;
+    --disabled-color: #fff3;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: var(--white-color);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--white-color);
+    font-weight: 700;
+}
+
+nav a{
+    font-size: 2rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin-left: 3.5rem;
+    transition: .5s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    font-size: 4rem;
+    display: none;
+}
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10rem 9% 2rem;
+    background: var(--bg-color);
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    }
+
+    section.active {
+        visibility: visible;
+        opacity: 1;
+        overflow: auto;
+    }
+
+    .home {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+    }
+
+    .home-detail h1{
+        font-size: clamp(3.5rem, 10vw, 5.5rem);
+    }
+
+    .home-detail h2 {
+        display: inline-block;
+        font-size: 3.2rem;
+        margin-top: -1rem;
+    }
+
+    .home-detail h2 span {
+        position: relative;
+        display: inline-block;
+        color: transparent;
+        -webkit-text-stroke: .07rem var(--main-color);
+    }
+    .home-detail h2 span::before {
+        content: attr(data-text);
+        position: absolute;
+        width: 0;
+        border-right: .2rem solid var(--main-color);
+        color: var(--main-color);
+        white-space: nowrap;
+        overflow: hidden;
+        animation: fill-txt 4s linear infinite;
+    }
+
+    @keyframes fill-txt {
+        10%,100%{
+            width: 0;
+        }
+        70%,90%{
+            width: 100%;
+        }
+    }
+
+    .home-detail p{
+        font-size: 1.6rem;
+        margin: 1rem 0 2.5rem;
+    }
+
+    .home-detail .btn-sci {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 1rem 3rem;
+        background: var(--main-color);
+        border: .2rem solid var(--main-color);
+        border-radius: 4rem;
+        box-shadow: 0 0 1rem var(--main-color);
+        font-size: 1.6rem;
+        color: var(--bg-color);
+        font-weight: 500;
+        transition: .5s;
+    }
+
+    .btn:hover {
+        background: transparent;
+        color: var(--main-color);
+        box-shadow: none;
+    }
+
+    .home-detail .btn-sci .sci {
+        margin-left: 2rem;
+    }
+
+    .home-detail .btn-sci .sci a{
+        display: inline-flex;
+        padding: .8rem;
+        border: .2rem solid var(--main-color);
+        border-radius: 50%;
+        font-size: 2rem;
+        color: var(--main-color);
+        margin: 0 .8rem;
+        transition: .5s;
+    }
+
+    .home-detail .btn-sci .sci a:hover {
+        background: var(--main-color);
+        color: var(--bg-color);
+        box-shadow: 0 0 1rem var(--main-color);
+    }
+
+   .home-img .img-box {
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 50%;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+   }
+
+   .home-img .img-box::before,
+   .home-img .img-box::after {
+    content: '';
+    position: absolute;
+    width: 50rem;
+    height: 50rem;
+    background: conic-gradient(transparent, transparent, transparent, var(--main-color));
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+   }
+
+   .home-img .img-box::after {
+    animation-delay: 5s;
+
+   }
+
+   @keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+   }
+
+   .home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    border-radius: 50%;
+    border: .01rem solid var(--bg-color);
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+    
+   }
+   .home-img .img-box .img-item img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: block;
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+    justify-content:left;
+    }
+
+    .heading {
+        font-size: 4.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .heading span{
+        color: var(--main-color);
+    }
+
+    .resume-container {
+        display: grid; 
+        grid-template-columns: 1fr 2fr; 
+        gap: 5rem; 
+        justify-items: center; 
+        align-items: center; 
+        width: 100%; 
+        height: 100vh;
+        padding: 2rem; 
+        box-sizing: border-box; 
+    }
+    
+    
+
+    
+
+    .resume-box h2 {
+        font-size: 4.5rem;
+    }
+
+    .resume-box p{
+        font-size: 1.6rem;
+    }
+
+    .resume-box .desc {
+        margin: 2rem 0 2.5rem;
+    }
+
+    .resume-box .resume-btn {
+        width: 100%;
+        height: 5.3rem;
+        background: var(--secound-bg-color);
+        border: .2rem solid var(--secound-bg-color);
+        font-size: 1.6rem;
+        color: var(--white-color);
+        font-weight: 2rem;
+        border-radius: .8rem;
+        cursor: pointer;
+        margin-bottom: 2rem;
+    }
+
+    .resume-box .resume-btn.active {
+        border-color: var(--main-color);
+        color: var(--main-color);
+    }
+
+
+.resume-detail {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.resume-detail.active {
+    display: block;
+    opacity: 1;
+}
+
+.resume-box .heading {
+    font-size: 3.5rem;
+    text-align: left;
+}
+
+.resume-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
+    padding-bottom: 2rem; 
+    overflow-y: auto; 
+}
+
+.resume-list .resume-item {
+    background: var(--secound-bg-color);
+    border-radius: .8rem;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: auto; 
+}
+
+.resume-item .Ano {
+    color: var(--main-color);
+}
+
+.resume-item h3 {
+    font-size: 2.2rem;
+}
+
+.resume-item .company {
+    position: relative;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.resume-item .company::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: .5rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    margin-left: -2rem;
+}
+
+.resume-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width: 100%; 
+    box-sizing: border-box; 
+}
+
+
+
+     .resume-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 20px; 
+        margin-top: 2rem; 
+    }
+    
+    .resume-certificado {
+        background: var(--secound-bg-color);
+        border-radius: .8rem;
+        padding: 3rem 2.5rem;
+        height: auto; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    }
+    
+    .resume-certificado h3 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem; 
+    }
+    
+    .resume-certificado .Ano {
+        color: var(--main-color);
+        font-weight: bold; 
+    }
+    
+    .resume-certificado .faculdade {
+        position: relative;
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .resume-certificado .faculdade::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: .5rem;
+        background: var(--main-color);
+        border-radius: 50%;
+        margin-left: -2rem;
+    }
+    
+    
+    
+     .skills-grid {
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+        gap: 20px; 
+        justify-items: center; 
+        align-items: center;
+        margin-top: 20px; 
+        }
+    
+    .skill-item {
+        text-align: center;
+        font-size: 16px; /* Tamanho do texto */
+        color: var(--main-color); /* Cor padrão */
+        transition: transform 0.2s; /* Animação de hover */
+        border: 2px solid var(--main-color); /* Borda ao redor de cada item */
+        border-radius: 8px; /* Bordas arredondadas */
+        padding: 20px; /* Espaçamento interno */
+        background-color: var(--secound-bg-color) ; 
+        box-shadow: 0 4px 8px var(--bg-color); /* Sombra suave para dar efeito de profundidade */
+        box-sizing: border-box; /* Garantir que padding e borda sejam incluídos nas dimensões do elemento */
+    }
+    
+    .skill-item i {
+        font-size: 40px; /* Tamanho dos ícones */
+        color: var(--main-color); /* Cor dos ícones */
+        margin-bottom: 10px; /* Espaçamento abaixo do ícone */
+    }
+    
+    .skill-item:hover {
+        transform: scale(1.1); /* Aumenta levemente no hover */
+        background-color: var(--bg-color); /* Altera a cor de fundo no hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais forte no hover */
+    }
+
+    /* Torne a classe mais específica para evitar que afete outras seções */
+.resume-detail.about {
+    padding: 2rem;
+    background-color: #1f242d; /* Cor de fundo */
+    border-radius: .8rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Personalizando o título */
+.resume-detail.about .heading {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+/* Organizando os itens na lista */
+.resume-detail.about .resume-list {
+    display: grid;
+    gap: 1rem; /* Menos gap entre os itens */
+    grid-template-columns: 1fr; /* Itens ocupando 1 coluna */
+    width: 100%;
+}
+
+/* Estilo de cada item individual */
+.resume-detail.about .resume-item {
+    background: #fff3; /* Cor de fundo dos boxes */
+    border-radius: .8rem;
+    padding: 1rem; /* Padding dentro dos boxes */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Estilo do texto */
+.resume-detail.about .resume-item p {
+    font-size: 1.6rem;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+/* Destaque para o texto em span */
+.resume-detail.about .resume-item span {
+    color: var(--main-color); /* Cor do texto destacado */
+    font-weight: bold;
+}
+
+.resume-detail.about .subheading {
+    font-size: 2rem; /* Tamanho da fonte */
+    margin-bottom: 1rem; /* Espaçamento abaixo do título */
+    color: var(--main-color);
+    font-weight: bold; /* Deixar em negrito */
+    text-align: left; /* Alinhar à esquerda */
+}
+
+.portifolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Tamanho mínimo reduzido */
+    gap: 10px; /* Espaçamento entre os itens reduzido */
+    padding: 10px; /* Redução no padding geral */
+}
+
+.portifolio-item {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid transparent; /* Borda mais fina */
+    border-radius: 2px; /* Cantos levemente arredondados */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 5px; /* Adiciona um pouco de espaço interno */
+}
+
+.portifolio-item img {
+    width: 80%;
+    height: auto;
+    border-radius: 8px; /* Cantos arredondados acompanham o contêiner */
+}
+
+.portifolio-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 10px transparent;
+}
+
+.portifolio-item h3,
+.portifolio-item p,
+.portifolio-item .live-github {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px); /* Menor deslocamento no efeito */
+    transition: all 0.3s ease;
+    font-size: 0.9rem; /* Redução no tamanho da fonte */
+}
+
+.portifolio-item:hover h3,
+.portifolio-item:hover p,
+.portifolio-item:hover .live-github {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.portifolio-item h3 {
+    margin: 10px 0 3px; /* Menos espaço vertical */
+    color: var(--white-color);
+    font-size: 2rem; /* Redução no tamanho do título */
+}
+
+.portifolio-item p {
+    margin-bottom: 10px;
+    color: var(--white-color);
+    font-size: 1.5rem; /* Fonte menor para descrição */
+}
+
+.live-github a {
+    display: inline-block;
+    margin: 3px 5px; /* Links mais próximos */
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 1.2rem; /* Fonte menor para links */
+    transition: color 0.3s ease;
+}
+
+.live-github a:hover {
+    color: var(--main-color);
+}
+
+.live-github i {
+    margin-right: 3px; /* Ícones mais próximos do texto */
+    font-size: 0.9rem; /* Ícones menores */
+}
+
+.contato {
+    background-image: url('/assets/img/contact_bg (1).png'); /* Corrigido caminho da imagem */
+    background-color: var(--bg-color);
+    color: white;
+    padding: 50px 0;
+    background-size: cover; /* Garantir que a imagem cubra toda a área */
+    background-position: center; /* Centraliza a imagem */
+}
+
+.contato .conteudo-section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contato h2 {
+    font-size: 48px;
+    font-family: 'Righteous', sans-serif; /* Definir fallback para a fonte */
+    text-align: center;
+    padding: 20px 0;
+    color: var(--main-color); /* Garantir que o título tenha a cor correta */
+}
+
+.contato .fila {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Torna o layout responsivo em telas menores */
+}
+
+.contato .col {
+    width: 50%;
+    padding: 10px;
+    position: relative;
+    box-sizing: border-box; /* Corrige problemas de layout */
+}
+
+.contato .col input,
+.contato .col textarea {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: var(--secound-bg-color);
+    color: var(--white-color);
+    font-size: 18px;
+    border-radius: 8px; /* Borda arredondada para os campos */
+    box-sizing: border-box; /* Evita que o padding interfira no tamanho */
+    transition: all 0.3s ease; /* Suaviza a transição de foco */
+}
+
+.contato .col input:focus,
+.contato .col textarea:focus {
+    background-color: var(--secound-bg-color); /* Mudança de cor no foco */
+    outline: none; /* Remove o outline padrão */
+    border: 2px solid var(--main-color); /* Borda visível ao focar */
+}
+
+.contato button {
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid var(--white-color);
+    width: fit-content;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 22px;
+    font-size: 16px;
+    color: var(--white-color);
+    position: relative;
+    z-index: 10;
+    border-radius: 8px; /* Arredonda os cantos do botão */
+    transition: all 0.3s ease; /* Transição suave para hover */
+}
+
+.contato button:hover {
+    background-color: var(--main-color); /* Cor de fundo ao passar o mouse */
+    color: var(--white-color); /* Garantir que o texto fique visível */
+}
+
+.contato button .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: 1s;
+    border-radius: 8px; /* Adiciona borda arredondada na sobreposição */
+}
+
+.contato button:hover .overlay {
+    width: 100%;
+}
+
+.contato .col img {
+    width: 100%;
+    border-radius: 8px; /* Borda arredondada nas imagens */
+}
+
+.contato .col .info {
+    position: absolute;
+    top: 40%;
+    background-color: var(--bg-color);
+    padding: 20px;
+    max-width: 350px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    border-radius: 8px; /* Borda arredondada para a área de informações */
+}
+
+.contato .col .info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contato .col .info ul li {
+    margin-bottom: 20px;
+}
+
+.contato .col .info ul li i {
+    color: var(--main-color);
+    display: inline-block;
+    margin-right: 20px;
+}
